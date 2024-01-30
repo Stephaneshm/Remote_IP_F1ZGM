@@ -1,0 +1,81 @@
+<!DOCTYPE HTML><html>
+<head>
+  <title>ESP Web Server</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+ <style>
+    h2 {font-size: 3.0rem;}
+    p {font-size: 3.0rem;}
+    body {max-width: 1300px; margin:0px auto; padding-bottom: 25px;}
+
+    button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .selected {
+      color: white;
+      background-color: red;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2>ESP Web Server</h2><br>
+   
+
+
+  <button onclick="toggleCheckbox(this)" id="button1" value="81">Entrée 1</button>
+  <button onclick="toggleCheckbox(this)" id="button2" value="82">Entrée 2</button>
+  <button onclick="toggleCheckbox(this)" id="button3" value="83">Entrée 3</button>
+  <button onclick="toggleCheckbox(this)" id="button4" value="84">Entrée 4</button>
+  <button onclick="toggleCheckbox(this)" id="button5" value="85">Entrée 5</button>
+  <button onclick="toggleCheckbox(this)" id="button6" value="86">Entrée 6</button>
+  <button onclick="toggleCheckbox(this)" id="button7" value="87">Entrée 7</button>
+  <button onclick="toggleCheckbox(this)" id="button8" value="88">Entrée 8</button>
+  <button onclick="toggleCheckbox(this)" id="button9" value="89">Entrée 9</button>
+  <button onclick="toggleCheckbox(this)" id="button10" value="8A">Entrée 10</button>
+  <button onclick="toggleCheckbox(this)" id="button11" value="8B">Entrée 11</button>
+  <button onclick="toggleCheckbox(this)" id="button12" value="8C">Entrée 12</button><br><br>
+
+  
+  <button onclick="toggleCheckbox(this)" id="OUT1" value="81">Sortie 1</button>
+  <button onclick="toggleCheckbox(this)" id="OUT2" value="82">Sortie 2</button>
+  <button onclick="toggleCheckbox(this)" id="OUT3" value="83">Sortie 3</button>
+  <button onclick="toggleCheckbox(this)" id="OUT4" value="84">Sortie 4</button>
+  <button onclick="toggleCheckbox(this)" id="OUT5" value="85">Sortie 5</button>
+  <button onclick="toggleCheckbox(this)" id="OUT6" value="86">Sortie 6</button>
+  <button onclick="toggleCheckbox(this)" id="OUT7" value="87">Sortie 7</button>
+  <button onclick="toggleCheckbox(this)" id="OUT8" value="88">Sortie 8</button>
+  <button onclick="toggleCheckbox(this)" id="OUT9" value="89">Sortie 9</button>
+  <button onclick="toggleCheckbox(this)" id="OUT10" value="8A">Sortie 10</button>
+  <button onclick="toggleCheckbox(this)" id="OUT11" value="8B">Sortie 11</button>
+  <button onclick="toggleCheckbox(this)" id="OUT12" value="8C">Sortie 12</button>
+	
+	
+<script>function toggleCheckbox(element) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/update?output="+element.id+"&state="+element.value, true); 
+  xhr.send();
+  document.getElementById('button1').classList.remove('selected');
+  document.getElementById('button2').classList.remove('selected');
+  document.getElementById('button3').classList.remove('selected');
+  document.getElementById('button4').classList.remove('selected');
+  document.getElementById('button5').classList.remove('selected');
+  document.getElementById('button6').classList.remove('selected');
+  document.getElementById('button7').classList.remove('selected');
+  document.getElementById('button8').classList.remove('selected');
+  document.getElementById('button9').classList.remove('selected');
+  document.getElementById('button10').classList.remove('selected');
+  document.getElementById('button11').classList.remove('selected');
+  document.getElementById('button12').classList.remove('selected');
+ 
+  document.getElementById(element.id).classList.add('selected');
+
+}
+</script>
+</body>
+</html>

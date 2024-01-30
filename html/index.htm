@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 Boutons avec Sélection</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .selected {
+      color: white;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="onButtonClick(1)" id="button1">Bouton 1</button>
+  <button onclick="onButtonClick(2)" id="button2">Bouton 2</button>
+  <button onclick="onButtonClick(3)" id="button3">Bouton 3</button>
+  <button onclick="onButtonClick(4)" id="button4">Bouton 4</button>
+  <button onclick="onButtonClick(5)" id="button5">Bouton 5</button>
+  <button onclick="onButtonClick(6)" id="button6">Bouton 6</button>
+  <button onclick="onButtonClick(7)" id="button7">Bouton 7</button>
+  <button onclick="onButtonClick(8)" id="button8">Bouton 8</button>
+  <button onclick="onButtonClick(9)" id="button9">Bouton 9</button>
+  <button onclick="onButtonClick(10)" id="button10">Bouton 10</button>
+  <button onclick="onButtonClick(11)" id="button11">Bouton 11</button>
+  <button onclick="onButtonClick(12)" id="button12">Bouton 12</button>
+
+  <script>
+    function onButtonClick(buttonNumber) {
+      // Réinitialiser la classe 'selected' pour tous les boutons
+      for (let i = 1; i <= 12; i++) {
+        document.getElementById('button' + i).classList.remove('selected');
+      }
+	  
+	  var xhr = new XMLHttpRequest();
+	  xhr.open("GET", "/update?output="+buttonNumber"&state=1", true); 	
+	  xhr.send();
+
+      // Ajouter la classe 'selected' au bouton cliqué
+      document.getElementById('button' + buttonNumber).classList.add('selected');
+	  
+	  
+
+
+
+      //alert("Vous avez cliqué sur le bouton " + buttonNumber);
+    }
+  </script>
+
+</body>
+</html>
